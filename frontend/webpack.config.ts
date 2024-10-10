@@ -15,15 +15,16 @@ const config = {
   mode: "development",
   watch: true,
   entry: {
-    background: "./src/js/background.js",
-    content: "./src/js/contentScript.js",
-    popup: "./src/js/popup.js"
+    background: "./src/ts/background.ts",
+    content: "./src/ts/contentScript.ts",
+    popup: "./src/ts/popup.ts"
   },
   output: {
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
     open: true,
+    hot: true,
     host: "localhost",
   },
   plugins: [
@@ -39,13 +40,6 @@ const config = {
         popup: "popup",
       },
     }),
-    new webpack.HotPluginReloadServer({
-      compilationHooks: {
-        processAssets: (compilation, assets) => {
-          
-        }
-      }
-    })
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
