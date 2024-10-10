@@ -25,6 +25,23 @@
         }
         
         body {
+    background-color: #f6f2e3 !important;
+            border-radius: 15px;
+}
+
+        .form-container {
+    background-color: #f6f2e3;
+    width: auto; /* Increased width */
+    height: auto; /* Height adjusts to content */
+
+    color: #f6f2e3;
+    padding: 0px;
+    border-radius: 15px;
+    margin-left: 185px ; /* Center the container horizontally */
+            margin-right: 185px; /* Center the container horizontally */
+
+    text-align: center; /* Center all text inside the container */
+    /*box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); !* Add shadow for depth *!*/
     background-color: #ffffff !important;
 }
 
@@ -48,6 +65,12 @@
         /* Custom select dropdown styling */
         .custom-select {
             margin-top: 10px;
+            display: flex; /* Use flexbox for alignment */
+            justify-content: center; /* Center the dropdown */
+            width: 100%;
+            position: relative;
+            text-align: center;
+
             position: relative;
             display: flex; /* Use flexbox for alignment */
             justify-content: center; /* Center the dropdown */
@@ -55,6 +78,12 @@
 
         .custom-select select {
             appearance: none;
+            margin-left: 10px;
+            margin-right: 10px;
+            width: 300px;
+            font-size: 1.15rem;
+            padding: 0.675em 0;
+
             width: 100%;
             font-size: 1.15rem;
             padding: 0.675em 1em;
@@ -64,12 +93,34 @@
             color: #000;
             cursor: pointer;
             text-align: center; /* Center text inside the dropdown */
+
             padding-right: 2.5rem; /* Add some padding for the custom arrow */
         }
 
         /* Custom arrow for dropdown */
         .custom-select::before,
         .custom-select::after {
+            content: "";
+            position: absolute;
+            right: 1rem; /* Distance from the right edge */
+            pointer-events: none; /* Prevent interaction with arrows */
+        }
+
+        .custom-select::before {
+            border-left: 0.3rem solid transparent;
+    border-right: 0.3rem solid transparent;
+    border-bottom: 0.3rem solid black; /* Down arrow */
+    top: calc(50% - 0.25rem); /* Center vertically */
+    transform: translateY(-50%); /* Adjust for half the height of the arrow */
+        }
+
+        .custom-select::after {
+            border-left: 0.3rem solid transparent;
+    border-right: 0.3rem solid transparent;
+    border-top: 0.3rem solid black; /* Up arrow */
+    top: calc(50% + 0.25rem); /* Position below the down arrow */
+    transform: translateY(-50%); /* Adjust for half the height of the arrow */
+
             --size: 0.3rem;
             content: "";
             position: absolute;
@@ -94,6 +145,9 @@
         /* Adjust image size */
         .terminatorImg {
             margin-top: 5%;
+            height: 200px; /* Increased width */
+            width: auto; /* Adjust height to maintain aspect ratio */
+
             width: 90%; /* Increased width */
             height: auto; /* Adjust height to maintain aspect ratio */
         }
@@ -132,12 +186,19 @@
 }
 .footer{
     color: rgb(86, 86, 86);
+    /*position: absolute;*/
     position: absolute;
     right: 0;
     bottom: 0;
     margin-right: 10px;
     margin-bottom: 10px;
     font-size: 10px;
+
+    align-content: end;
+}
+
+
+
 }
 
 #FD-P{
@@ -225,6 +286,12 @@
             <label for="subject" style="display: block; margin-bottom: 10px;" class="orbitron-terminator">Language</label>
             <div class="custom-select">
                 <select name="subject" id="subject">
+                    <option value="English">English</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Russian">Russian</option>
+                    <option value="Creole">Creole</option>
+                    <option value="Chinese">Chinese</option>
+
                     <option value="Chinese">Chinese</option>
                     <option value="Creole">Creole</option>
                     <option value="English">English</option>
@@ -234,6 +301,16 @@
             </div>
         </form>
         
+        <div style="align-content: end">
+            <img class="terminatorImg" src="terminator.jpg" alt="Terminator"/>
+        </div>
+        <div>
+            <div class="loader" > </div>
+            <p id="counter" class="orbitron-terminator"></p>
+            <p id='FD-P' class="orbitron-terminator" > Flags Detected </p> 
+            
+        </div>
+
         <div>
             <img class="terminatorImg" src="terminator.jpg" alt="Terminator"/>
         </div>
@@ -243,12 +320,17 @@
             <p id='FD-P' class="orbitron-terminator" > Detecting  </p> 
             
         </div>
+ main
         <footer class="footer"> @ShellHacks2024</footer>
 
     </div>
 
     
     <script src="counter.js"></script>
+
+</body>
+</html>
+
     <script src="popup.js"></script>
 
 
